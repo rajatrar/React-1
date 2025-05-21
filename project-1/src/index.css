@@ -57,3 +57,15 @@ p {
 .header-gradient {
   background: linear-gradient(to right, #007bff, #6610f2); /* Blue to purple gradient */
 }
+
+/* Styles for the dish card */
+.dish-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px; /* Add some margin for spacing */
+}
+
+.dish-card:hover {
+  border-color: #007bff; /* Highlight border on hover */
+}

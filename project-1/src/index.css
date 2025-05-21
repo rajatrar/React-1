@@ -52,3 +52,8 @@ p {
     padding: 0 10px;
   }
 }
+
+/* Header gradient class */
+.header-gradient {
+  background: linear-gradient(to right, #007bff, #6610f2); /* Blue to purple gradient */
+}

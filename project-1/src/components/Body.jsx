@@ -1,58 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import ApiData from '../utils/apiData';
-
-// Modal component to display restaurant details
-const Modal = ({ show, handleClose, restaurant }) => {
-  if (!show) {
-    return null;
-  }
-
-  return (
-    <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <h2>{restaurant.info.name}</h2>
-        <p>ID: {restaurant.info.id}</p>
-        <p>Image ID: {restaurant.info.cloudinaryImageId}</p>
-        <p>Average Rating: {restaurant.info.avgRating}</p>
-        <p>Delivery Time: {restaurant.info.sla.deliveryTime} minutes</p>
-        <button onClick={handleClose}>Close</button>
-      </div>
-    </div>
-  );
-};
+import React, { useState } from 'react';
 
 const Body = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [restaurants, setRestaurants] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    setRestaurants(ApiData()); // Fetch data from ApiData
-  }, []);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
-  const handleShowModal = (restaurant) => {
-    setSelectedRestaurant(restaurant);
-    setShowModal(true);
+  const Modal = () => {
+    return (
+      <div style={{
+        display: isModalOpen ? 'block' : 'none',
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: 'white',
+        padding: '20px',
+        border: '1px solid #ccc',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        zIndex: 1000
+      }}>
+        <h2>Hardcoded Dish Details</h2>
+        <img src="https://via.placeholder.com/150" alt="Dish Image" style={{ width: '100px', height: '100px' }} />
+        <p>Dish Name: Delicious Pasta</p>
+        <p>Average Rating: 4.5</p>
+        <button onClick={closeModal}>Close Modal</button>
+      </div>
+    );
   };
 
-  const handleCloseModal = () => setShowModal(false);
-
   return (
-    <div className="body-container">
-      <h2>Restaurants</h2>
-      <div className="restaurant-list">
-        {restaurants.map((restaurant) => (
-          <div key={restaurant.info.id} className="restaurant-item" onClick={() => handleShowModal(restaurant)}>
-            <h3>{restaurant.info.name}</h3>
-            <p>Rating: {restaurant.info.avgRating}</p>
-            {/* You can add an image here using restaurant.info.cloudinaryImageId */}
-          </div>
-        ))}
-      </div>
-
-      {selectedRestaurant && (
-        <Modal show={showModal} handleClose={handleCloseModal} restaurant={selectedRestaurant} />
-      )}
+    <div>
+      <p>This is the body content.</p>
+      <button onClick={openModal}>Show Hardcoded Modal</button>
+      <Modal />
     </div>
   );
 };

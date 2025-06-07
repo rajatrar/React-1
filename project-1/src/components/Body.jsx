@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../index.css'; // Assuming index.css is in the parent directory
+import '../../src/index.css'; // Adjust the path as necessary
 
 const Body = () => {
 

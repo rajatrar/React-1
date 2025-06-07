@@ -1,4 +1,4 @@
-export const apiData = [
+export const ApiData = [
 
         { "info": {
                          "id": "686202",

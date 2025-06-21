@@ -1,0 +1,29 @@
+.cart-container{
+  height: 300px;
+  width: 600px;
+  border: 5px solid yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+.add-to-cart{
+  font-size: 40px;
+  position: absolute;
+  right: 5%;
+  top: 2%;
+}
+.item{
+  margin-left: 20px;
+}
+.btn-container button{
+  background-color: green;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+.img-container img{
+  width: 200px;
+}
